@@ -1,0 +1,15 @@
+{
+  "name": "f1-eurok07",
+  "version": "0.0.0",
+  "description": "f1-pelisivusto",
+  "main": "server.js",
+  "repository": "",
+  "author": "Ville Kuoppala <ville.t.kuoppala@student.tut.fi>",
+  "dependencies": {
+    "body-parser": "^1.12.0",
+    "ejs": "^2.2.4",
+    "express": "^4.11.2",
+    "open": "0.0.5",
+    "request": "^2.53.0"
+  }
+}

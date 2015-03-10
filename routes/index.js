@@ -2,7 +2,7 @@ var http = require('http');
 
 exports.index = function(req, res) {
   // Fetching data from yle tekstitv
-  var options = {
+  /*var options = {
       host: 'beta.yle.fi',
       path: '/api/ttvcontent/?a=tyw2d2dz&p=297&c=true'
   };
@@ -20,7 +20,7 @@ exports.index = function(req, res) {
     });
   };
   
-  http.request(options, callback).end();
+  http.request(options, callback).end();*/
 
   var drivers = [];
   var firstDriver = { name: "Hamilton", points: "384" };

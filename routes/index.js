@@ -2,7 +2,7 @@ var http = require('http');
 
 exports.index = function(req, res) {
   // Fetching data from yle tekstitv
-  var options = {
+  /*var options = {
       host: 'beta.yle.fi',
       path: '/api/ttvcontent/?a=tyw2d2dz&p=297&c=true'
   };
@@ -20,7 +20,7 @@ exports.index = function(req, res) {
     });
   };
   
-  http.request(options, callback).end();
+  http.request(options, callback).end();*/
 
   var drivers = [];
   var firstDriver = { name: "Hamilton", points: "384" };
@@ -39,7 +39,9 @@ exports.index = function(req, res) {
   // Read players from nimet.dat
   var players = [];
   var request = require('request');
-  request.get('http://f1eurok07.azurewebsites.net/files/nimet_test.dat', function (error, response, body) {
+  // http://f1-eurok07-kuoppal3.c9.io
+  // http://f1eurok07.azurewebsites.net
+  request.get('http://f1-eurok07-kuoppal3.c9.io/files/nimet_test.dat', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var csv = body;
       var names = csv.split('\n');

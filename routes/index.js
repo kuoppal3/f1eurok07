@@ -47,27 +47,27 @@ exports.index = function(req, res) {
   var request = require('request');
   // http://f1-eurok07-kuoppal3.c9.io
   // http://f1eurok07.azurewebsites.net
+  
   request.get('http://f1eurok07.azurewebsites.net/files/nimet_2014.txt', function (error, response, body) {
-    if (!error) {
+    if (!error && response.statusCode == 200) {
       var csv = body;
-      csv.toString('utf-8');
       csv = csv.replaceAll('¤', 'ä');
       csv = csv.replaceAll('¶', 'ö');
       csv = csv.replaceAll('„', 'Ä');
       csv = csv.replaceAll('–', 'Ö');
       csv = csv.replaceAll('Ã', '');
       
-      console.log(csv);
       var names = csv.split('\n');
 
       for(var i = 0; i < names.length; ++i) {
         var playerDrivers = [];
         // Player's name
-        var playerName = names[i];
+        var playerName = names[i].replace(/(\r\n|\n|\r)/gm,"");
         ++i;
         // Player's driverlist
         for(var a = 0; a < 6; ++a) {
-          var playerDriver = { name: names[i + a], color: "gray" };
+          var nameToAdd = names[i + a].replace(/(\r\n|\n|\r)/gm,"");
+          var playerDriver = { name: nameToAdd , color: "gray" };
           playerDrivers.push(playerDriver);
         }
         
@@ -84,22 +84,16 @@ exports.index = function(req, res) {
       for(var i = 0; i < drivers.length; ++i) {
         var driverName = drivers[i].name;
         var driverPoints = drivers[i].points;
-        
-        //console.log("nimi: " + driverName);
-        //console.log("pisteet: " + driverPoints);
-        
         // Go through all the players and count their rank
         for(var p = 0; p < players.length; ++p) {
 
           // Go through all the players' drivers and give rankpoints to each of them
           for(var dr = 0; dr < players[p].driverRanks.length; ++dr) {
-            if(dr === i && players[p].driverRanks[dr].name === driverName) {
-              //console.log("Osu");
+            if(dr === i && players[p].driverRanks[dr].name == driverName) {
               players[p].driverRanks[dr].color = "green";
               players[p].totalRank += parseFloat(driverPoints);
             // Hit but not exact hit
-            } else if(players[p].driverRanks[dr].name === driverName) {
-              //console.log("listassa");
+            } else if(players[p].driverRanks[dr].name == driverName) {
               players[p].driverRanks[dr].color = "yellow";
               players[p].totalRank += (parseFloat(driverPoints) * 0.1);
             }

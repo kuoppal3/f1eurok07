@@ -41,7 +41,7 @@ exports.index = function(req, res) {
   var request = require('request');
   // http://f1-eurok07-kuoppal3.c9.io
   // http://f1eurok07.azurewebsites.net
-  request.get('http://f1-eurok07-kuoppal3.c9.io/files/nimet_test.txt', function (error, response, body) {
+  request.get('http://f1eurok07.azurewebsites.net/files/nimet_test.txt', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var csv = body;
       var names = csv.split('\n');
@@ -77,7 +77,7 @@ exports.index = function(req, res) {
         // Go through all the players and count their rank
         for(var p = 0; p < players.length; ++p) {
 
-          // Go through all the players' drivers and give rankpoints each of them
+          // Go through all the players' drivers and give rankpoints to each of them
           for(var dr = 0; dr < players[p].driverRanks.length; ++dr) {
             if(dr === i && players[p].driverRanks[dr].name === driverName) {
               //console.log("Osu");
@@ -87,10 +87,15 @@ exports.index = function(req, res) {
             } else if(players[p].driverRanks[dr].name === driverName) {
               //console.log("listassa");
               players[p].driverRanks[dr].color = "yellow";
-              players[p].totalRank += parseFloat(driverPoints) * 0.1;
+              players[p].totalRank += (parseFloat(driverPoints) * 0.1);
             }
           }
         }
+      }
+      
+      // Fix all players rank to 1 decimal
+      for(var i = 0; i < players.length; ++i) {
+        players[i].totalRank = players[i].totalRank.toFixed(1);
       }
       
       // TODO: lasttime ranks
@@ -98,6 +103,7 @@ exports.index = function(req, res) {
       // Copy the array
       var sortedPlayers = players.slice(0);
       sortedPlayers.sort(function(a, b) { return b.totalRank - a.totalRank});
+
       res.render('index', { players: players, sortedPlayers: sortedPlayers, drivers: drivers });
     }
   });

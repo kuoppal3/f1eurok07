@@ -1,8 +1,9 @@
     <% include header %>
+
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h1>Pelaajien pistetilanne</h1>
+            <div class="col-md-6 col-sm-6">
+                <h1>Pelaajien pisteet</h1>
                 <table class="table table-striped table-bordered table-hover table-condensed">
                     <thead>
                       <tr>
@@ -15,7 +16,33 @@
                     <% for(var i = 0; i < sortedPlayers.length; ++i) { %>
                       <tr>
                         <td><%= i + 1 %></td>
-                        <td><%= sortedPlayers[i].name %></td>
+                        <td><a href="#" data-toggle="popover" data-html="true" data-trigger="hover" 
+                              data-content="
+                          
+                              <table class=&quot;table table-striped table-bordered table-condensed &quot;>
+                                <thead>
+                                  <tr>
+                                    <th>#</th>
+                                    <th><%= sortedPlayers[i].name %></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                <% for(var d = 0; d < sortedPlayers[i].driverRanks.length; ++d) { %>
+                                  <% if(sortedPlayers[i].driverRanks[d].color === "green") { %>
+                                    <tr class=&quot;success&quot;>
+                                  <% } else if(sortedPlayers[i].driverRanks[d].color === "yellow") { %>
+                                    <tr class=&quot;warning&quot;>
+                                  <% } else if(sortedPlayers[i].driverRanks[d].color === "gray") { %>
+                                    <tr class=&quot;danger&quot;>
+                                  <% } %>
+                                    <td><%= d + 1 %></td>
+                                    <td><%= sortedPlayers[i].driverRanks[d].name %></td>
+                                  </tr>
+                                <% } %>
+                                </tbody>
+                              </table>" 
+                              
+                              data-original-title="Pelaajan rivi"><%= sortedPlayers[i].name %></a></td>
                         <td><%= sortedPlayers[i].totalRank %></td>
                       </tr>
                     <% } %> 
@@ -23,8 +50,8 @@
                 </table>
             </div>
            
-           <div class="col-md-6">
-                <h1>Kuljettajien pistetilanne</h1>
+           <div class="col-md-6 col-sm-6">
+                <h1>Kuljettajien pisteet</h1>
                 <table class="table table-striped table-bordered table-hover table-condensed">
                     <thead>
                       <tr>
@@ -46,43 +73,80 @@
             </div> 
         </div><!-- row -->
         </div>
+        
     <!-- playerlisting begins here -->
-    <div class="container-fluid">
-      <div class="row">
-      
-          <h1>Pelaajalista</h1>
-          <% for(var i = 0; i < players.length; ++i) { %>
-              <% if(i % 10 === 0) { %>
-                <div class="col-lg-1 col-lg-offset-1 col-md-2 col-sm-4 col-xs-6">
-              <% } else { %>
-                <div class="col-lg-1 col-md-2 col-sm-4 col-xs-6">
-              <% } %>
 
-                  <table class="table table_sm_font table-striped table-bordered table-hover table-condensed">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th><%= players[i].name %></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <% for(var d = 0; d < players[i].driverRanks.length; ++d) { %>
-                        <% if(players[i].driverRanks[d].color === "green") { %>
-                          <tr class="success">
-                        <% } else if(players[i].driverRanks[d].color === "yellow") { %>
-                          <tr class="warning">
-                        <% } else { %>
-                          <tr class="danger">
-                        <% } %>
-                          <td><%= d + 1 %></td>
-                          <td><%= players[i].driverRanks[d].name %></td>
-                        </tr>
-                      <% } %>
-                      </tbody>
-                  </table>
-              </div>
-          <% } %> 
-    
+    <div class="container">
+      <div class="row">
+          <h1>Pelaajalista</h1>
+      </div>
+      
+      <div class="row">
+        <% for(var tables = 0; tables < players.length / 12; ++tables) { %>
+          <% var multiplier = tables * 12; %> 
+          <table class="table table_sm_font table-striped table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <% for(var n = 0 + multiplier; n < 12 + multiplier; ++n) { %>
+                  <% if (n >= players.length) { %>
+                     <th style="width: 8%"></th>
+                     <% continue; %>
+                  <% } %>
+                 <th style="width: 8%"><%= players[n].name %></th>
+                <% } %> 
+              </tr>
+            </thead>
+            <tbody>
+            <% for(var d = 0; d < 6; ++d) { %>
+              <tr>
+                <% for(var p = 0 + multiplier; p < 12 + multiplier; ++p) { %>
+                    <% if (p >= players.length) { %>
+                       <th></th>
+                      <% continue; %>
+                    <% } %>
+                  <% if (p === 0 + multiplier) { %>
+                    <td style="width: 2%"><%= d + 1 %></td>
+                  <% } %>
+                  <% if(players[p].driverRanks[d].color === "green") { %>
+                    <td style="width: 8%" class="success">
+                  <% } else if(players[p].driverRanks[d].color === "yellow") { %>
+                    <td style="width: 8%" class="warning">
+                  <% } else { %>
+                    <td style="width: 8%" class="danger">
+                  <% } %>
+                    <%= players[p].driverRanks[d].name %></td>
+                <% } %>
+              </tr>
+            <% } %> 
+            
+            </tbody>
+                  
+          
+          </table>
+        <% } %>
+        </div>
+
+        <h1>Värien selitykset</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <table class="table table-striped table-bordered table-condensed table-hover">
+
+          <tbody>
+            <tr class="success">
+              <td>Vihreä</td>
+              <td>Kuljettaja on kuuden parhaan joukossa ja pelaajan rivissä oikealla sijalla.</td>
+            </tr>
+            <tr class="warning">
+              <td>Keltainen</td>
+              <td>Kuljettaja on pelaajan kuuden parhaan joukossa, mutta pelaajan rivissä väärällä sijalla.</td>
+            </tr>
+            <tr class="danger">
+              <td>Punainen</td>
+              <td>Kuljettaja on pelaajan rivissä, mutta ei kuuden parhaan joukossa.</td>
+            </tr>
+          </tbody>
+      </div>
+
       </div>
     </div>
     </body>

@@ -5,13 +5,21 @@
         <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
+    
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();   
+    });
+    </script>
     <style>
         body {
           padding-top: 70px;
         }
     </style>
-    <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/jquery-2.1.3.min.js"></script>
+
 <body>
     
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -28,7 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="nav navbar-nav">
             <li><a href="">Pelaajalistaan</a></li>
-            <li><a href="/public/f1_2015.pdf">Lataa pelaajalista pdf-muodossa</a></li>
+            <li><a href="/files/f1_2015.pdf">Lataa pelaajalista pdf-muodossa</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

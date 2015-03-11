@@ -41,7 +41,7 @@ exports.index = function(req, res) {
   var request = require('request');
   // http://f1-eurok07-kuoppal3.c9.io
   // http://f1eurok07.azurewebsites.net
-  request.get('http://f1eurok07.azurewebsites.net/files/nimet_test.txt', function (error, response, body) {
+  request.get('http://f1eurok07.azurewebsites.net/files/nimet_test', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var csv = body;
       var names = csv.split('\n');

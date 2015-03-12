@@ -4,7 +4,7 @@
 
 var http = require('http');
 var path = require('path');
-
+var fs = require('fs');
 var express = require('express');
 var app = express();
 var routes = require('./routes');
@@ -22,10 +22,9 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-//var basicAuth = require('basic-auth');
+var basicAuth = require('basic-auth');
 
-/*var auth = function (req, res, next) {
-  console.log("saatana");
+var auth = function (req, res, next) {
   function unauthorized(res) {
     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
     return res.sendStatus(401);
@@ -37,50 +36,23 @@ app.use(express.static(path.join(__dirname, 'public')));
     return unauthorized(res);
   };
 
+  // TODO: get rid of plaintextpass
   if (user.name === 'f1' && user.pass === 'ouluveenkeepee') {
     return next();
   } else {
     return unauthorized(res);
   };
-};*/
-var serveIndex = require('serve-index');
-var basicAuth = require('basic-auth');
-var auth = function(req, res, next){
-    var user = basicAuth(req);
-    if(user && user.name == "admin" && user.pass == "admin")
-        return next();
-    else{
-        res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-        return res.send(401);
-    }
 };
-
-app.use(function(req, res, next){
-    if(req.url.indexOf('lista') != -1){
-        console.log(req.url);
-        return auth(req, res, next);
-    }
-    else
-        next();
-});
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/lista', serveIndex('public/lista', {'icons': true, 'hidden': true, 'view': 'details'}));
-
-/*app.use(function(req, res, next){
-  console.log("moi");
-  console.log(req.url.indexOf('lista'));
-  if(req.url.indexOf('lista') != -1) {
-    return auth(req, res, next);
-  } else {
-    next();
-  }
-});
-
-app.use('/lista', auth);
-app.use('/lista', express.static(path.join(__dirname, 'lista')));*/
 
 // Routes
 app.get('/', auth, routes.index);
+app.get('/lista', auth, function(request, response){
+  var pdf = path.join(__dirname, '/lista/f1_2014.pdf');
+  fs.readFile(pdf, function (err,data){
+     response.contentType("application/pdf");
+     response.send(data);
+  });
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

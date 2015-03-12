@@ -22,12 +22,13 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-var basicAuth = require('basic-auth');
+//var basicAuth = require('basic-auth');
 
-var auth = function (req, res, next) {
+/*var auth = function (req, res, next) {
+  console.log("saatana");
   function unauthorized(res) {
     res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    return res.send(401);
+    return res.sendStatus(401);
   };
 
   var user = basicAuth(req);
@@ -41,7 +42,42 @@ var auth = function (req, res, next) {
   } else {
     return unauthorized(res);
   };
+};*/
+var serveIndex = require('serve-index');
+var basicAuth = require('basic-auth');
+var auth = function(req, res, next){
+    var user = basicAuth(req);
+    if(user && user.name == "admin" && user.pass == "admin")
+        return next();
+    else{
+        res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+        return res.send(401);
+    }
 };
+
+app.use(function(req, res, next){
+    if(req.url.indexOf('lista') != -1){
+        console.log(req.url);
+        return auth(req, res, next);
+    }
+    else
+        next();
+});
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/lista', serveIndex('public/lista', {'icons': true, 'hidden': true, 'view': 'details'}));
+
+/*app.use(function(req, res, next){
+  console.log("moi");
+  console.log(req.url.indexOf('lista'));
+  if(req.url.indexOf('lista') != -1) {
+    return auth(req, res, next);
+  } else {
+    next();
+  }
+});
+
+app.use('/lista', auth);
+app.use('/lista', express.static(path.join(__dirname, 'lista')));*/
 
 // Routes
 app.get('/', auth, routes.index);

@@ -12,6 +12,7 @@
     "express": "^4.11.2",
     "http-auth": "^2.2.5",
     "open": "0.0.5",
-    "request": "^2.53.0"
+    "request": "^2.53.0",
+    "serve-index": "^1.6.2"
   }
 }

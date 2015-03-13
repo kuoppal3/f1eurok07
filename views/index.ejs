@@ -82,13 +82,13 @@
       </div>
       
       <div class="row">
-        <% for(var tables = 0; tables < players.length / 12; ++tables) { %>
-          <% var multiplier = tables * 12; %> 
+        <% for(var tables = 0; tables < players.length / 8; ++tables) { %>
+          <% var multiplier = tables * 8; %> 
           <table class="table table_sm_font table-striped table-bordered table-condensed table-hover">
             <thead>
               <tr>
                 <th>#</th>
-                <% for(var n = 0 + multiplier; n < 12 + multiplier; ++n) { %>
+                <% for(var n = 0 + multiplier; n < 8 + multiplier; ++n) { %>
                   <% if (n >= players.length) { %>
                      <th style="width: 8%"></th>
                      <% continue; %>
@@ -100,7 +100,7 @@
             <tbody>
             <% for(var d = 0; d < 6; ++d) { %>
               <tr>
-                <% for(var p = 0 + multiplier; p < 12 + multiplier; ++p) { %>
+                <% for(var p = 0 + multiplier; p < 8 + multiplier; ++p) { %>
                     <% if (p >= players.length) { %>
                        <th></th>
                       <% continue; %>

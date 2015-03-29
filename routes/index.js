@@ -29,12 +29,12 @@ exports.index = function(req, res) {
   http.request(options, callback).end();*/
 
   var drivers = [];
-  var firstDriver = { name: "Hamilton", points: "25" };
-  var secondDriver = { name: "Rosberg", points: "18" };
-  var thirdDriver = { name: "Vettel", points: "15" };
-  var fourthDriver = { name: "Massa", points: "12" };
-  var fifthDriver =  { name: "Nasr", points: "10" };
-  var sixthDriver = { name: "Ricciardo", points: "8" };
+  var firstDriver = { name: "Hamilton", points: "43" };
+  var secondDriver = { name: "Vettel", points: "40" };
+  var thirdDriver = { name: "Rosberg", points: "33" };
+  var fourthDriver = { name: "Massa", points: "20" };
+  var fifthDriver =  { name: "Räikkönen", points: "12" };
+  var sixthDriver = { name: "Bottas", points: "10" };
   drivers.push(firstDriver);
   drivers.push(secondDriver);
   drivers.push(thirdDriver);

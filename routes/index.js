@@ -8,7 +8,7 @@ String.prototype.replaceAll = function(search, replace)
 
 exports.index = function(req, res) {
   // Fetching data from yle tekstitv
-  /*var options = {
+/*  var options = {
       host: 'beta.yle.fi',
       path: '/api/ttvcontent/?a=tyw2d2dz&p=297&c=true'
   };
@@ -29,12 +29,12 @@ exports.index = function(req, res) {
   http.request(options, callback).end();*/
 
   var drivers = [];
-  var firstDriver = { name: "Hamilton", points: "68" };
-  var secondDriver = { name: "Vettel", points: "55" };
-  var thirdDriver = { name: "Rosberg", points: "51" };
-  var fourthDriver = { name: "Massa", points: "30" };
-  var fifthDriver =  { name: "Räikkönen", points: "24" };
-  var sixthDriver = { name: "Bottas", points: "18" };
+  var firstDriver = { name: "Hamilton", points: "93" };
+  var secondDriver = { name: "Rosberg", points: "66" };
+  var thirdDriver = { name: "Vettel", points: "65" };
+  var fourthDriver = { name: "Räikkönen", points: "42" };
+  var fifthDriver =  { name: "Massa", points: "31" };
+  var sixthDriver = { name: "Bottas", points: "30" };
   drivers.push(firstDriver);
   drivers.push(secondDriver);
   drivers.push(thirdDriver);

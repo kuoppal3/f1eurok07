@@ -8,7 +8,7 @@ String.prototype.replaceAll = function(search, replace)
 
 exports.index = function(req, res) {
   // Fetching data from yle tekstitv
-/*  var options = {
+  var options = {
       host: 'beta.yle.fi',
       path: '/api/ttvcontent/?a=tyw2d2dz&p=297&c=true'
   };
@@ -26,15 +26,15 @@ exports.index = function(req, res) {
     });
   };
   
-  http.request(options, callback).end();*/
+  http.request(options, callback).end();
 
   var drivers = [];
-  var firstDriver = { name: "Hamilton", points: "151" };
-  var secondDriver = { name: "Rosberg", points: "134" };
-  var thirdDriver = { name: "Vettel", points: "108" };
+  var firstDriver = { name: "Hamilton", points: "169" };
+  var secondDriver = { name: "Rosberg", points: "159" };
+  var thirdDriver = { name: "Vettel", points: "120" };
   var fourthDriver = { name: "Räikkönen", points: "72" };
-  var fifthDriver =  { name: "Bottas", points: "57" };
-  var sixthDriver = { name: "Massa", points: "47" };
+  var fifthDriver =  { name: "Bottas", points: "67" };
+  var sixthDriver = { name: "Massa", points: "62" };
   drivers.push(firstDriver);
   drivers.push(secondDriver);
   drivers.push(thirdDriver);

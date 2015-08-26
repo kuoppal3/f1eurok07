@@ -33,8 +33,8 @@ exports.index = function(req, res) {
     });
   
     response.on('end', function () {
-      var content = JSON.parse(str).pages[0].subpages[0].content;
-
+      /*var content = JSON.parse(str).pages[0].subpages[0].content;
+      console.log(content);
       var driver1RowIndex = content.indexOf("1.");
       var driver2RowIndex = content.indexOf("2.");
       var driver3RowIndex = content.indexOf("3.");
@@ -61,7 +61,7 @@ exports.index = function(req, res) {
       var driver3Pts= driver3Row.match(/\d+/)[0];
       var driver4Pts= driver4Row.match(/\d+/)[0];
       var driver5Pts= driver5Row.match(/\d+/)[0];
-      var driver6Pts= driver6Row.match(/\d+/)[0];
+      var driver6Pts= driver6Row.match(/\d+/)[0];*/
       
       // Debug prints
       /*console.log(driver1Name);
@@ -78,12 +78,21 @@ exports.index = function(req, res) {
       console.log(driver6Pts);*/
 
       var drivers = [];
-      var firstDriver = { name: driver1Name, points: driver1Pts };
+      // Points from yle tekstitv
+      /*var firstDriver = { name: driver1Name, points: driver1Pts };
       var secondDriver = { name: driver2Name, points: driver2Pts };
       var thirdDriver = { name: driver3Name, points: driver3Pts };
       var fourthDriver = { name: driver4Name, points: driver4Pts };
       var fifthDriver =  { name: driver5Name, points: driver5Pts };
-      var sixthDriver = { name: driver6Name, points: driver6Pts };
+      var sixthDriver = { name: driver6Name, points: driver6Pts };*/
+      
+      // For the cases site doesn't know how to parse yle tekstitv
+      var firstDriver = { name: "Hamilton", points: 227 };
+      var secondDriver = { name: "Rosberg", points: 199 };
+      var thirdDriver = { name: "Vettel", points: 160 };
+      var fourthDriver = { name: "Massa", points: 82 };
+      var fifthDriver =  { name: "Räikkönen" , points: 82 };
+      var sixthDriver = { name: "Bottas", points: 79 };      
       drivers.push(firstDriver);
       drivers.push(secondDriver);
       drivers.push(thirdDriver);

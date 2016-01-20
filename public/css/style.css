@@ -1,0 +1,69 @@
+.table_sm_font
+{
+    font-size: 14px
+}
+
+.well-red {
+    background-color: #ff0000;
+}
+
+.red_color_text {
+    color: #e80000;
+}
+
+.red_text {
+    background-color: #ff0000;
+}
+
+.yellow_text {
+    background-color: #ffff33;
+}
+
+.green_text {
+    background-color: #00FF66;
+}
+
+.stroke_text
+{
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+h1 { text-align: center; }
+
+h4 { text-align: center; }
+
+.table tbody tr > td.success {
+  background-color: #dff0d8 !important;
+}
+
+.table tbody tr > td.error {
+  background-color: #f2dede !important;
+}
+
+.table tbody tr > td.warning {
+  background-color: #fcf8e3 !important;
+}
+
+.table tbody tr > td.info {
+  background-color: #d9edf7 !important;
+}
+
+.table-hover tbody tr:hover > td.success {
+  background-color: #d0e9c6 !important;
+}
+
+.table-hover tbody tr:hover > td.error {
+  background-color: #ebcccc !important;
+}
+
+.table-hover tbody tr:hover > td.warning {
+  background-color: #faf2cc !important;
+}
+
+.table-hover tbody tr:hover > td.info {
+  background-color: #c4e3f3 !important;
+}

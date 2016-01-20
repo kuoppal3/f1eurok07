@@ -41,11 +41,13 @@ var auth = function (req, res, next) {
     return next();
   } else {
     return unauthorized(res);
-  };
+  }
 };
 
 // Routes
 app.get('/', auth, routes.index);
+app.get('/:year', auth, routes.index);
+
 app.get('/lista', auth, function(request, response){
   var pdf = path.join(__dirname, '/lista/f1_2015.pdf');
   fs.readFile(pdf, function (err,data){

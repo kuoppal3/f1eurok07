@@ -25,6 +25,7 @@ var getDrivers = function(year, callback) {
   // http://f1eurok07.azurewebsites.net
   request.get('http://f1eurok07.azurewebsites.net/files/drivers.txt', function (error, response, body) {
     if (!error && response.statusCode == 200) {
+      
       var csv = body;
       csv = csv.replaceAll('¤', 'ä');
       csv = csv.replaceAll('¶', 'ö');
@@ -33,11 +34,12 @@ var getDrivers = function(year, callback) {
       csv = csv.replaceAll('Ã', '');
 
       var driverList = csv.split('\n');
-
+      
       // Find year
       for(var i = 0; i < driverList.length; ++i) {
-        if(driverList[i] === year.toString()) {
-          
+        var driverListRow = driverList[i].replace(/(\r\n|\n|\r)/gm,"");
+        
+        if(driverListRow.toString() === year.toString()) {
           ++i;
           // Player's driverlist
           for(var a = 0; a < 6; ++a) {
@@ -148,6 +150,7 @@ function renderMainpage(year, res) {
     getDrivers(year, function(drivers) {
       getPlayers(year, function(players) {
         countTotalRanks(players, drivers, function(sortedPlayers) {
+          
           sortedPlayers.sort(function(a, b) { return b.totalRank - a.totalRank});
 
           res.render('index', { players: players, sortedPlayers: sortedPlayers, drivers: drivers, year: year });

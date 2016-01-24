@@ -129,12 +129,13 @@ var countTotalRanks = function(players, drivers, callback) {
   
   // TODO: lasttime ranks
   //console.log(players[0].driverRanks);
+  
   // Copy the array
   var sortedPlayers = players.slice(0);
   sortedPlayers.sort(function(a, b) { return b.totalRank - a.totalRank});
   
   callback(sortedPlayers);
-}
+};
 
 
 function renderMainpage(year, res) {

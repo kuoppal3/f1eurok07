@@ -21,7 +21,15 @@
                     </thead>
                     <tbody>
                     <% for(var i = 0; i < sortedPlayers.length; ++i) { %>
-                      <tr>
+                      <% if(i === 0) { %>
+                      <tr class="gold">
+                      <% } else if(i === 1) { %>
+                      <tr class="silver">
+                      <% } else if(i === 2) { %>
+                      <tr class="bronze">
+                      <% } %>
+                      
+                      
                         <td><%= i + 1 %></td>
                         <td><a href="#" data-toggle="popover" data-html="true" data-trigger="hover" 
                               data-content="

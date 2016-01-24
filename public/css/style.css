@@ -23,6 +23,18 @@
     background-color: #00FF66;
 }
 
+.gold {
+  background-color: #fdf496 !important;
+}
+
+.silver {
+  background-color: #d4d4d4 !important; 
+}
+
+.bronze {
+  background-color: #fdca96 !important;;
+}
+
 .stroke_text
 {
     text-shadow:

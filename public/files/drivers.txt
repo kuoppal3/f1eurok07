@@ -1,3 +1,80 @@
+1996
+Hill,97
+Villeneuve,78
+Schumacher,59
+Alesi,47
+Häkkinen,31
+Berger,21
+1997
+Villeneuve,81
+Frentzen,42
+Coulthard,36
+Alesi,36
+Häkkinen,27
+Berger,27
+1998
+Häkkinen,90
+Schumacher M,86
+Coulthard,52
+Irvine,41
+Villeneuve,20
+Hill,17
+1999
+Häkkinen,76
+Irvine,74
+Frentzen,54
+Coulthard,46
+M. Schumacher,44
+R. Schumacher,35
+2000
+Schumacher M,108
+Häkkinen,89
+Coulthard,73
+Barrichello,62
+Schumacher R,24
+Fisichella,18
+2001
+M. Schumacher,123
+Coulthard,65
+Barrichello,56
+R. Schumacher,49
+Häkkinen,37
+Montoya,31
+2002
+M Schumacher,144
+Barrichello,77
+Montoya,50
+R Schumacher,42
+Coulthard,41
+Räikkönen,24
+2003
+M Schumacher,95
+Räikkönen,91
+Montoya,82
+Barrichello,65
+R Schumacher,58
+Alonso,55
+2004
+M Schumacher,146
+Barrichello,108
+Button,85
+Alonso,54
+Montoya,48
+Trulli,46
+2005
+Alonso,133
+Räikkönen,112,
+M. Schumacher,62
+Montoya,60
+Fisichella,58
+R. Schumacher,45
+2006
+Alonso,134
+M. Schumacher,121
+Massa,80
+Fisichella,72
+Räikkönen,65
+Button,56
 2007
 Räikkönen,110
 Hamilton,109

@@ -41,28 +41,39 @@
                 Vanhoja tuloksia
                 <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="2015">2015</a>
-                </li>
-                <li>
-                  <a href="2014">2014</a>
-                </li>
-                <li>
-                  <a href="2013">2013</a>
-                </li>
-                <li>
-                  <a href="2012">2012</a>
-                </li>
-                <li>
-                  <a href="2011">2011</a>
-                </li>
-                <li>
-                  <a href="2009">2009</a>
-                </li>
-                <li>
-                  <a href="2007">2007</a>
-                </li>
+              <ul class="dropdown-menu multi-column columns-3">
+                 <div class="row">
+ 			            <div class="col-xs-3">
+				            <ul class="multi-column-dropdown">
+                      <% for(var i=2015; i >= 2010; i--) {%>
+                        <li>
+                          <a href="<%= i %>"><%= i %></a>
+                        </li>
+                      <% } %>
+                      </ul>
+                  </div>
+			            <div class="col-xs-3">
+				            <ul class="multi-column-dropdown">
+                      <% for(var i=2009; i >= 2000; i--) {%>
+                        <li>
+                          <a href="<%= i %>"><%= i %></a>
+                        </li>
+                      <% } %>
+                      </ul>
+                    </div>
+			            <div class="col-xs-3">
+				            <ul class="multi-column-dropdown">
+                      <% for(var i=1999; i >= 1996; i--) {%>
+                        <li>
+                          <a href="<%= i %>"><%= i %></a>
+                        </li>
+                      <% } %>
+                      </ul>
+                    </div>
+
+
+                  </div>
+              </ul>
             </ul>
           </li>
           </ul>

@@ -49,7 +49,7 @@ app.get('/', auth, routes.index);
 app.get('/:year', auth, routes.index);
 
 app.get('/lista', auth, function(request, response){
-  var pdf = path.join(__dirname, '/lista/f1_2015.pdf');
+  var pdf = path.join(__dirname, '/lista/f1_2016.pdf');
   fs.readFile(pdf, function (err,data){
      response.contentType("application/pdf");
      response.send(data);

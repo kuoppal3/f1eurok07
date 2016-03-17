@@ -323,9 +323,9 @@ function renderMainpage(year, res) {
 
 exports.index = function(req, res) {
   if(req.params.year === undefined) {
-    req.params.year = 2015;
+    req.params.year = 2016;
   }
   renderMainpage(req.params.year, res);
-
+ 
 
 }

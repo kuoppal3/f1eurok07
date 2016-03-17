@@ -46,7 +46,7 @@ var auth = function (req, res, next) {
 
 // Routes
 app.get('/', auth, routes.index);
-app.get('/:year', auth, routes.index);
+app.get('/results/:year', auth, routes.index);
 
 app.get('/lista', auth, function(request, response){
   var pdf = path.join(__dirname, '/lista/f1_2016.pdf');

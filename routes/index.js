@@ -6,7 +6,7 @@ String.prototype.replaceAll = function(search, replace)
     return this.replace(new RegExp('[' + search + ']', 'g'), replace);
 };
 
-var names = ['Hamilton', 'Rosberg', 'Vettel', 'Räikkönen', 'Bottas', 'Massa', 'Ricciardo', 'Kvyat', 'Hülkenberg', 'Grosjean'];
+var names = ['Hamilton', 'Rosberg', 'Vettel', 'Räikkönen', 'Bottas', 'Massa', 'Ricciardo', 'Kvyat', 'Hülkenberg', 'Grosjean', 'Verstappen'];
 
 function findName(driverRow) {
     for(var i = 0; i < names.length; ++i) {

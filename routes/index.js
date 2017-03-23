@@ -266,7 +266,7 @@ function renderMainpage(year, res) {
           // http://f1-eurok07-kuoppal3.c9.io
           // http://f1eurok07.azurewebsites.net
           
-          request.get('http://f1eurok07.azurewebsites.net/files/nimet_2016.txt', function (error, response, body) {
+          request.get('http://f1eurok07.azurewebsites.net/files/nimet_2017.txt', function (error, response, body) {
             if (!error && response.statusCode == 200) {
               var csv = body;
               csv = csv.replaceAll('¤', 'ä');
@@ -279,10 +279,9 @@ function renderMainpage(year, res) {
         
               for(var i = 0; i < names.length; ++i) {
                 var playerDrivers = [];
-                // Player's name
                 var playerName = names[i].replace(/(\r\n|\n|\r)/gm,"");
                 ++i;
-                // Player's driverlist
+
                 for(var a = 0; a < 6; ++a) {
                   var nameToAdd = names[i + a].replace(/(\r\n|\n|\r)/gm,"");
                   var playerDriver = { name: nameToAdd , color: "gray" };

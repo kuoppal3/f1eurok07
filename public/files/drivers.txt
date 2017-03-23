@@ -139,9 +139,9 @@ Räikkönen,150
 Bottas,136
 Massa,121
 2016
-Rosberg,25
-Hamilton,18
-Vettel,15
-Ricciardo,12
-Massa,10
-Grosjean,8
+Rosberg,385
+Hamilton,380
+Ricciardo,256
+Vettel,212
+Verstappen,204
+Räikkönen,186

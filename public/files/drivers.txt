@@ -145,3 +145,10 @@ Ricciardo,256
 Vettel,212
 Verstappen,204
 Räikkönen,186
+2017
+Vettel,43
+Hamilton,43
+Verstappen,25
+Bottas,23
+Räikkönen,22
+Ricciardo,12

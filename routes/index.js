@@ -174,7 +174,7 @@ function renderMainpage(year, res) {
 
       response.on('end', function () {
         var content = JSON.parse(str).pages[0].subpages[0].content;
-
+        
         var driver1RowIndex = content.indexOf("1.");
         var driver2RowIndex = content.indexOf("2.");
         var driver3RowIndex = content.indexOf("3.");
@@ -201,9 +201,7 @@ function renderMainpage(year, res) {
         driver4Row.match(/\d+/) === null ||driver5Row.match(/\d+/) === null ||driver6Row.match(/\d+/) === null) {
             var date = new Date();
             year = date.getFullYear();
-            
             getDrivers(year, function(drivers) {
-
               getPlayers(year, function(players) {
 
                 countTotalRanks(players, drivers, function(sortedPlayers) {

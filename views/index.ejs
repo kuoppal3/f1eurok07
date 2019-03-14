@@ -1,7 +1,7 @@
     <% include header %>
     <div class="container">
         <div class="row">
-          <% if(year < 2018) { %>
+          <% if(year < new Date().getFullYear()) { %>
             <h1> Vuoden <%= year %> tulokset </h1>
           <% } %>
         </div>

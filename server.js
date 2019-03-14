@@ -53,7 +53,7 @@ app.get('/paivita', auth, function(request, response) {
 });
 
 app.get('/lista', auth, function(request, response){
-  var pdf = path.join(__dirname, '/lista/f1_2019.pdf');
+  var pdf = path.join(__dirname, '/lista/f1_' + new Date().getFullYear() + '.pdf');
   fs.readFile(pdf, function (err,data){
      response.contentType("application/pdf");
      response.send(data);

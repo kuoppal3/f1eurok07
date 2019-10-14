@@ -8,7 +8,8 @@ String.prototype.replaceAll = function(search, replace)
 
 var names = ['Hamilton', 'Rosberg', 'Vettel', 'Räikkönen', 'Bottas', 'Massa',
              'Ricciardo', 'Kvyat', 'Hülkenberg', 'Grosjean', 'Verstappen', 'Leclerc', 
-             'Magnussen', 'Stroll', 'Gasly', 'Norris', 'Pérez'];
+             'Magnussen', 'Stroll', 'Gasly', 'Norris', 'Pérez', 'Albon', 'Sainz',
+             'Norris', 'Giovinazzi'];
 
 function findName(driverRow) {
     for(var i = 0; i < names.length; ++i) {

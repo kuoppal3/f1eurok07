@@ -159,3 +159,10 @@ Räikkönen,251
 Verstappen,249
 Bottas,247
 Ricciardo,170
+2019
+Hamilton,413
+Bottas,326
+Verstappen,278
+Leclerc,264
+Vettel,240
+Sainz,96

@@ -149,8 +149,9 @@ function renderMainpage(year, res) {
       path: '/api/ttvcontent/?a=tyw2d2dz&p=297&c=true'
   };
 
+  year = 2019;
   // If year is set, use drivers.txt
-  if(year !== undefined || year === 2019 || year === "2019") {
+  if(year !== undefined) {
     getDrivers(year, function(drivers) {
       getPlayers(year, function(players) {
         countTotalRanks(players, drivers, function(sortedPlayers) {

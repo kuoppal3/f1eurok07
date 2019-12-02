@@ -150,7 +150,7 @@ function renderMainpage(year, res) {
   };
 
   // If year is set, use drivers.txt
-  if(year !== undefined) {
+  if(year !== undefined || year === 2019) {
     getDrivers(year, function(drivers) {
       getPlayers(year, function(players) {
         countTotalRanks(players, drivers, function(sortedPlayers) {

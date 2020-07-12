@@ -12,7 +12,8 @@
 }
 
 .new-page {
-  font-size: 32px;
+  font-size: 50px !important;
+  color: red !important;
 }
 
 .red_text {
